@@ -1,5 +1,8 @@
+from youtube_downloader.cli import app
+
+
 def main() -> None:
-    print("Hello from youtube-downloader!")
+    app()
 
 
 if __name__ == "__main__":
