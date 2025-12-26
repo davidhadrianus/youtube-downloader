@@ -20,8 +20,11 @@ dev = [
 ]
 
 [build-system]
-requires = ["hatchling"]
-build-backend = "hatchling.build"
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+
+[tool.uv.extra-build-dependencies]
+youtube-downloader = ["hatchling"]
 
 [tool.ruff]
 line-length = 88
@@ -59,6 +62,16 @@ python_files = ["test_*.py"]
 python_classes = ["Test*"]
 python_functions = ["test_*"]
 addopts = "-v --tb=short"
+
+[dependency-groups]
+dev = [
+    "black>=25.12.0",
+    "mypy>=1.19.1",
+    "pre-commit>=4.5.1",
+    "pytest>=9.0.2",
+    "pytest-mock>=3.15.1",
+    "ruff>=0.14.10",
+]
 
 [project.scripts]
 yt-dl = "youtube_downloader.cli:app"
